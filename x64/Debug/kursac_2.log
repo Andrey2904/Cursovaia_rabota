@@ -1,0 +1,4 @@
+﻿  kursac_2.cpp
+C:\Users\HP\Desktop\kursach_prog\kursac_2\kursac_2.cpp(60,30): warning C4244: =: преобразование "std::streamoff" в "long", возможна потеря данных
+C:\Users\HP\Desktop\kursach_prog\kursac_2\kursac_2.cpp(141,36): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  kursac_2.vcxproj -> C:\Users\HP\Desktop\kursach_prog\kursac_2\x64\Debug\kursac_2.exe
