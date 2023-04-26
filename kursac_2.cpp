@@ -1,5 +1,5 @@
 ﻿// kursac_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+//C:\Users\HP\Desktop\prog
 
 #include <iostream>
 #include<fstream>
@@ -62,11 +62,25 @@ int main()
     }
     else {
         cout << "Autosize is not define"<<endl;
+        cout << "Probably the file is not in this repository" << endl;
         nFileLen = -1;
     }
     cout << "Autosize is " << nFileLen << endl;
     cout << "Enter first bite and last bite" << endl;
     cin >> fbite>>ebite;
+    if (fbite > ebite) {
+        cout << "The first byte cannot be larger than the last one. Therefore, the first and last bytes will be swapped." << endl;
+        swap(fbite, ebite);
+    }
+    if (fbite < 0) {
+        cout << " The first byte cannot be less than 0"<<endl;
+        fbite = 0;
+    }
+    if (ebite > nFileLen) {
+        cout << "The end byte connot be greater than size file"<<endl;
+        ebite = nFileLen;
+    }
+    
     file.open(path);
     string start,midle,ends;
     int pos = 0;
@@ -120,8 +134,6 @@ int main()
         num.push_back(tm);
 
     }
-
-    show(num);
     vector<int> id,ent;
     cout << endl;
     for (int i = 0; i < num.size(); i++) {
@@ -161,13 +173,16 @@ int main()
         midle += a;
         
     }
+    string fl1 = "\\sort_file.txt";
+    cout << "Enter the path where to create the file" << endl;
+    string path2;
+    cin >> path;
+    path2 = path + fl1;
 
-
-    path = "C:\\Users\\HP\\Desktop\\prog\\myfile.txt";
     ofstream newfile;
     
     
-    newfile.open(path);
+    newfile.open(path2);
 
     if (!newfile.is_open()) {
         cout << "Error, file is not open";
@@ -178,11 +193,11 @@ int main()
         newfile << ends;
     }
     newfile.close();
+    fl1 = "\\sort_file_srt.SRT";
+    path2 = path + fl1;
 
-    path = "C:\\Users\\HP\\Desktop\\prog\\myfile_srt.SRT";
 
-
-    newfile.open(path);
+    newfile.open(path2);
 
     if (!newfile.is_open()) {
         cout << "Error, file is not open";
